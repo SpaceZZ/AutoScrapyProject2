@@ -3,7 +3,7 @@ from AutoScrapy.items import EuroCisItem
 
 class Eurocis(scrapy.Spider):
 	"""
-	Spider to get the data from the Baza Firm PL
+	Spider to get the data from the eurocis
 	"""
 	count = 0
 	name = "eurocisspider"

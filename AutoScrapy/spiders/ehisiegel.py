@@ -3,7 +3,7 @@ from AutoScrapy.items import EhiSiegelItem
 
 class Ehisigiel(scrapy.Spider):
 	"""
-	Spider to get the data from the Baza Firm PL
+	Spider to get the data from the ehi-sigiel
 	"""
 	count = 0
 	name = "ehisiegelspider"
