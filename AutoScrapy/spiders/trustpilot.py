@@ -33,7 +33,7 @@ class TrustPilot(scrapy.Spider):
 		"""
 		list_of_indexes = response.xpath('//*/div[@class="subCategoryItem___3ksKz"]/a/@href').extract()
 		for index in list_of_indexes:
-			index = "https://www.trustpilot.com/" + index
+			index = "https://www.trustpilot.com" + index
 			yield scrapy.Request(index, callback=self.parse_companies)
 
 	def parse_companies(self, response):
@@ -45,11 +45,11 @@ class TrustPilot(scrapy.Spider):
 		list_of_companies = response.xpath('//*/div[@class="businessUnitCardsContainer___Qhix1"]/a/@href').extract()
 		list_of_companies = list(set(list_of_companies))
 		for company in list_of_companies:
-			link = "https://www.trustpilot.com/" + company
+			link = "https://www.trustpilot.com" + company
 			yield scrapy.Request(link, callback=self.parse_data)
 		next = response.xpath('//*/a[@aria-label="Next page"]/@href').extract_first()
 		if next:
-			next = "https://www.trustpilot.com/" + next
+			next = "https://www.trustpilot.com" + next
 			yield scrapy.Request(next, callback=self.parse_companies)
 
 	def parse_data(self, response):
@@ -61,7 +61,7 @@ class TrustPilot(scrapy.Spider):
 		item = TrustPilotItem()
 		item['name'] = response.xpath('//*/span[@class="multi-size-header__big"]/text()').extract_first()
 		item['url'] = response.request.url
-		script = response.xpath('//*/script[@data-initial-state="business-unit-info""]/text()').extract()
+		script = response.xpath('//*/script[@data-initial-state="business-unit-info"]/text()').extract()
 		data = json.loads(script[0])
 		identifier = data.get('businessUnitId', '')
 		url = "https://www.trustpilot.com/businessunit/" + str(identifier) + "/companyinfobox"
