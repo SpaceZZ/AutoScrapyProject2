@@ -23,7 +23,7 @@ class ELounge(scrapy.Spider):
 		:param response: the fully downloaded webpage
 		:return: the iterator over the categories links
 		"""
-		list_of_indexes = response.xpath('//*/li[@list-group-item"]/a/@href').extract()
+		list_of_indexes = response.xpath('//*/li[@class="list-group-item"]/a/@href').extract()
 		#remove all the links with "#top" as they are pointing to the top of the screen
 		for index in list_of_indexes:
 			yield scrapy.Request(index, callback=self.parse_companies)
@@ -37,12 +37,13 @@ class ELounge(scrapy.Spider):
 		list_of_companies = response.xpath('//*/div[@class="media-body"]')
 		for company in list_of_companies:
 			link = company.xpath('.//@href').extract_first()
-			item = eloungeItem()
-			address = company.xpath('.//p/text()').extract_first()
-			if address:
-				item['zip_code'] = address.split()[0]
-				item['city'] = address.split()[1]
-			yield scrapy.Request(link, callback=self.parse_data, meta={'item': item})
+			if link:
+				item = eloungeItem()
+				address = company.xpath('.//p/text()').extract_first()
+				if address:
+					item['zip_code'] = address.split()[0]
+					item['city'] = address.split()[1]
+				yield scrapy.Request(link, callback=self.parse_data, meta={'item': item})
 		next = response.xpath('//*/li[@class="hidden-xs active"]/following-sibling::li[1]/a/@href').extract_first()
 		if next:
 			yield scrapy.Request(next, callback=self.parse_companies)
