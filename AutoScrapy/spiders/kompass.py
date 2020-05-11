@@ -15,7 +15,7 @@ class kompass(scrapy.Spider):
 		'FEED_URI' : 'resultskompass.csv'
 	}
 	allowed_domains = ['de.kompass.com']
-	start_urls = ["https://de.kompass.com/a/software-fur-elektronischen-handel-e-commerce/57640/"]
+	start_urls = ["https://de.kompass.com/a/online-einzelhandler-e-commerce/81650/"]
 
 
 	def parse(self, response):
@@ -28,8 +28,8 @@ class kompass(scrapy.Spider):
 		for company in list_of_companies:
 			if "https" in company:
 				yield scrapy.Request(company, callback=self.parse_data)
-		for i in range(1,9):
-			page = "https://de.kompass.com/a/software-fur-elektronischen-handel-e-commerce/57640/page-" + str(i)
+		for i in range(2,21):
+			page = "https://de.kompass.com/a/online-einzelhandler-e-commerce/81650/page-" + str(i)
 			yield scrapy.Request(page, callback=self.parse)
 
 
