@@ -15,8 +15,10 @@ class t3n(scrapy.Spider):
 		'FEED_URI' : 'resultsWLW.csv'
 	}
 	allowed_domains = ['wlw.de']
-	start_urls = ["https://www.wlw.de/de/firmen/online-shopping-software",
-				  "https://www.wlw.de/de/firmen/software-fuer-electronic-business"]
+	start_urls = ["https://www.wlw.de/de/firmen/payment-service-provider-psp",
+				  "https://www.wlw.de/de/firmen/online-zahlungssysteme",
+				  "https://www.wlw.de/de/firmen/software-fuer-zahlungsverkehr",
+				  "https://www.wlw.de/de/firmen/it-projekte?entered_search=1"]
 
 
 	def parse(self, response):

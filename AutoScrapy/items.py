@@ -127,3 +127,23 @@ class WLWItem(scrapy.Item):
     website = scrapy.Field()
     url = scrapy.Field()
     contacts = scrapy.Field()
+
+class IBusinessItem(scrapy.Item):
+    name = scrapy.Field()
+    address = scrapy.Field()
+    telephone = scrapy.Field()
+    fax = scrapy.Field()
+    email = scrapy.Field()
+    desc = scrapy.Field()
+    website = scrapy.Field()
+    url = scrapy.Field()
+    date_updated = scrapy.Field()
+
+
+class OnlineMarketingItem(scrapy.Item):
+    name = scrapy.Field()
+    category = scrapy.Field()
+    tags = scrapy.Field()
+    desc = scrapy.Field()
+    website = scrapy.Field()
+    url = scrapy.Field()
