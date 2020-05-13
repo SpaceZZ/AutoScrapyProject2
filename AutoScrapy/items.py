@@ -155,3 +155,9 @@ class ShopTalkItem(scrapy.Item):
     desc = scrapy.Field()
     website = scrapy.Field()
     url = scrapy.Field()
+
+class AdobeItem(scrapy.Item):
+    name = scrapy.Field()
+    tags = scrapy.Field()
+    desc = scrapy.Field()
+    website = scrapy.Field()
