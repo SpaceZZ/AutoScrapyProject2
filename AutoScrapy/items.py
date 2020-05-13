@@ -147,3 +147,11 @@ class OnlineMarketingItem(scrapy.Item):
     desc = scrapy.Field()
     website = scrapy.Field()
     url = scrapy.Field()
+
+class ShopTalkItem(scrapy.Item):
+    name = scrapy.Field()
+    category = scrapy.Field()
+    tags = scrapy.Field()
+    desc = scrapy.Field()
+    website = scrapy.Field()
+    url = scrapy.Field()
