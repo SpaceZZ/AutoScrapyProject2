@@ -175,17 +175,18 @@ class RetailXItem(scrapy.Item):
 
 
 class HandlerListItem(scrapy.Item):
-    """
-    Item class for https://geizhals.de/?hlist
-    """
-    name = scrapy.Field()
-    name_long = scrapy.Field()
-    url = scrapy.Field()
-    zip_code = scrapy.Field()
-    street_address = scrapy.Field()
-    country = scrapy.Field()
-    website = scrapy.Field()
-    phone = scrapy.Field()
-    fax = scrapy.Field()
-    email = scrapy.Field()
-    stars_rating = scrapy.Field()
+	"""
+	Item class for https://geizhals.de/?hlist
+	"""
+	page = scrapy.Field()
+	name = scrapy.Field()
+	name_long = scrapy.Field()
+	url = scrapy.Field()
+	zip_code = scrapy.Field()
+	street = scrapy.Field()
+	city = scrapy.Field()
+	website = scrapy.Field()
+	phone = scrapy.Field()
+	fax = scrapy.Field()
+	email = scrapy.Field()
+	stars_rating = scrapy.Field()
