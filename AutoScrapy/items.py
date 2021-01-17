@@ -247,3 +247,20 @@ class Top100ShopsItem(scrapy.Item):
     email = scrapy.Field()
     keywords = scrapy.Field()
     contact_page = scrapy.Field()
+
+
+class BevhItem(scrapy.Item):
+    """
+    Item class for attached list of 100 best shops
+    """
+    domain = scrapy.Field()
+    name = scrapy.Field()
+    company_name = scrapy.Field()
+    url = scrapy.Field()
+    website_title = scrapy.Field()
+    website_desc = scrapy.Field()
+    website_url = scrapy.Field()
+    phone = scrapy.Field()
+    email = scrapy.Field()
+    keywords = scrapy.Field()
+    contact_page = scrapy.Field()
